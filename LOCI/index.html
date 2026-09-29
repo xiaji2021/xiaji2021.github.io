@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOCI — Spatial Linear Memory for Streaming World Models</title>
+  <meta name="description" content="LOCI combines spatial recurrent memory with retained visual observations for camera-controlled streaming video generation and consistent revisits.">
+  <meta name="theme-color" content="#f8f7f3">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar"><a class="wordmark" href="#">LOCI<span> / Spatial memory</span></a><nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#demo">Demo</a><a href="#release">Release</a></nav></header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Camera-controlled streaming world models</p>
+      <h1>LOCI</h1>
+      <h2>Spatial Linear Memory<br>for Streaming World Models</h2>
+      <p class="tagline">Remember the scene.<br>Recover it when you return.</p>
+      <p class="authors">Ji Xia<sup>1</sup> · Tingting Liao<sup>1</sup> · Xuezhi Liang<sup>1</sup> · Hao Li<sup>2,3</sup> · Guangyi Liu<sup>1,†</sup></p>
+      <p class="affiliations"><sup>1</sup> Institute of Foundation Models, Mohamed bin Zayed University of Artificial Intelligence<br><sup>2</sup> Mohamed bin Zayed University of Artificial Intelligence &nbsp; <sup>3</sup> Pinscreen<br><span>† Corresponding author</span></p>
+      <div class="links"><a class="button primary" href="assets/paper.pdf">Read the paper ↗</a><a class="button" href="https://github.com/xiaji2021/LOCI">GitHub ↗</a><span class="button pending">Weights · Coming soon</span></div>
+    </section>
+    <section id="overview" class="section">
+      <p class="eyebrow">01 / Overview</p><h2>A memory of the world,<br>conditioned on where you look.</h2>
+      <p class="intro">When a camera revisits a previously observed region, a video world model should reproduce what was there before. LOCI combines a compact recurrent memory with a cache of visual observations, using projective camera geometry to guide memory reads and writes.</p>
+      <figure class="overview"><img src="assets/overview.png" alt="LOCI observes a scene, accumulates spatial context in recurrent memory, uses a context-aware query to focus on co-visible history, and recovers a previously observed view." width="1994" height="621"><figcaption>Spatial context helps retrieve relevant visual history. Attention weights in this illustration are schematic.</figcaption></figure>
+      <div class="features"><article><span>01</span><h3>Spatial recurrent memory</h3><p>Camera geometry enters both memory addressing and stored content in the recurrent linear-attention blocks.</p></article><article><span>02</span><h3>Retained visual detail</h3><p>Cache-backed attention blocks retain past observations and read them using scene context accumulated by recurrent memory.</p></article><article><span>03</span><h3>Bounded streaming</h3><p>A bounded bank of retained observations supports long rollouts at constant memory, alongside recurrent state that summarises history.</p></article></div>
+    </section>
+    <section id="demo" class="section">
+      <p class="eyebrow">02 / Long-range recall</p><h2>Revisiting a remembered scene.</h2>
+      <p class="intro">A recorded Tokyo trajectory, with ground-truth history supplied before generation. The panels compare the matching ground-truth continuation, LOCI, and full softmax.</p>
+      <figure class="demo"><video controls muted playsinline preload="metadata" aria-label="Tokyo continuation comparison: ground truth, LOCI and full softmax"><source src="assets/tokyo-recall.mp4" type="video/mp4"></video><figcaption>120.1-second trajectory: 75.1 seconds supplied as ground-truth history, followed by 44.9 seconds of generated continuation shown here. This is a history-conditioned continuation, not a 120-second fully generated video.</figcaption></figure>
+    </section>
+    <section id="release" class="section release">
+      <div><p class="eyebrow">03 / Release</p><h2>Project resources</h2><p>The paper and this project page are available now. Inference code and model weights are being prepared for release.</p></div>
+      <div class="resource-list"><a href="assets/paper.pdf"><span>Paper PDF</span><span>Available ↗</span></a><a href="https://github.com/xiaji2021/LOCI"><span>Code repository</span><span>README preview ↗</span></a><div><span>Inference code &amp; weights</span><span>Coming soon</span></div></div>
+    </section>
+    <section class="section citation"><p class="eyebrow">Citation</p><pre><code>@article{xia2026loci,
+  title={LOCI: Spatial Linear Memory for Streaming World Models},
+  author={Xia, Ji and Liao, Tingting and Liang, Xuezhi and Li, Hao and Liu, Guangyi},
+  year={2026}
+}</code></pre></section>
+  </main>
+  <footer>LOCI · Spatial Linear Memory for Streaming World Models</footer>
+</body>
+</html>

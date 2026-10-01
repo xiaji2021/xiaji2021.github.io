@@ -231,11 +231,23 @@ async function turn(S) {
     loopWhileVisible(sec, () => render(v.currentTime));
     return;
   }
-  let target = 0, shown = -1;
+  // Scroll -> clip time so that equal scroll = equal apparent camera motion (the clip's turn rate is uneven),
+  // then approach that time with a time-based ease and a capped rate, so mouse-wheel notches don't jump.
+  const grid = [], mo = [];
+  for (let tv = 0; tv <= total - 0.05; tv += 1 / 16) {
+    const [ts] = toSrc(tv), i = idxAt(t, ts);
+    grid.push(tv); mo.push(t.cum[i] / 40 + t.dist[i]);   // 40 degrees of turning ~ 1 m of walking
+  }
+  for (let i = 1; i < mo.length; i++) if (mo[i] < mo[i - 1]) mo[i] = mo[i - 1];
+  const moT = mo[mo.length - 1] || 1;
+  const timeAt = p => { const m = p * moT; let lo = 0, hi = mo.length - 1; while (lo < hi) { const mid = (lo + hi) >> 1; if (mo[mid] < m) lo = mid + 1; else hi = mid; } return grid[lo]; };
+  let target = 0, shown = -1, last = performance.now();
   loopWhileVisible(sec, () => {
     const r = sec.getBoundingClientRect();
     const p = clamp(-r.top / (r.height - innerHeight), 0, 1);
-    target += ((p * (total - 0.05)) - target) * 0.22;
+    const now = performance.now(), dtR = Math.min(0.05, (now - last) / 1000); last = now;
+    const goal = timeAt(p), k = 1 - Math.exp(-dtR / 0.22), maxStep = 1.4 * dtR;   // <= 1.4 s of clip per real second
+    target += Math.max(-maxStep, Math.min(maxStep, (goal - target) * k));
     if (Math.abs(target - shown) > 1 / 60) {
       if (v.readyState >= 1 && !v.seeking) { v.currentTime = target; }
       render(target); shown = target;

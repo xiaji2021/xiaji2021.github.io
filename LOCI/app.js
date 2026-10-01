@@ -246,7 +246,7 @@ async function turn(S) {
     const r = sec.getBoundingClientRect();
     const p = clamp(-r.top / (r.height - innerHeight), 0, 1);
     const now = performance.now(), dtR = Math.min(0.05, (now - last) / 1000); last = now;
-    const goal = timeAt(p), k = 1 - Math.exp(-dtR / 0.12), maxStep = 5 * dtR;   // ease 120 ms; <= 5 s of source per real second so fast scrolls still land promptly
+    const goal = timeAt(p), k = 1 - Math.exp(-dtR / 0.07), maxStep = 12 * dtR;   // tight coupling: ~70 ms ease, cap only guards against seek storms
     target += Math.max(-maxStep, Math.min(maxStep, (goal - target) * k));
     if (Math.abs(target - shown) > 1 / 60) {
       if (v.readyState >= 1 && !v.seeking) { v.currentTime = target / (S.speed || 1); }   // clip is encoded at S.speed x; target is in source seconds

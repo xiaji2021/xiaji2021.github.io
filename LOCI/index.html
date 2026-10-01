@@ -2,105 +2,193 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>LOCI: Spatial Linear Memory for Streaming World Models</title>
-  <meta name="description" content="LOCI combines spatial recurrent memory with retained visual observations for camera-controlled streaming video generation and consistent revisits.">
-  <meta name="theme-color" content="#fbfaf7">
+  <meta name="description" content="LOCI is a streaming world model with spatial memory. Look away, come back, and the world is still there.">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="preload" href="manifest.json" as="fetch" crossorigin>
+  <link rel="stylesheet" href="style.css?v=h3">
 </head>
 <body>
-<div class="layout">
-  <nav class="toc" aria-label="Contents">
-    <a class="mark" href="#top">LOCI</a>
-    <div class="mark-sub">Spatial Linear Memory<br>for Streaming World Models</div>
-    <ol>
-      <li><a href="#key-idea"><span class="n">1</span><span>Key idea</span></a></li>
-      <li><a href="#results"><span class="n">2</span><span>Long-range recall</span></a></li>
-      <li><a href="#resources"><span class="n">3</span><span>Paper &amp; code</span></a></li>
-      <li><a href="#citation"><span class="n">4</span><span>Citation</span></a></li>
-    </ol>
-    <div class="progress" aria-hidden="true"><i></i></div>
-    <div class="foot"><a href="https://github.com/xiaji2021/LOCI">GitHub ↗</a><a href="#top">Back to top ↑</a></div>
+<a class="skip" href="#credits">Skip to paper details</a>
+
+<header class="bar" id="bar">
+  <a class="bar-mark" href="#top">LOCI</a>
+  <nav aria-label="Sections">
+    <a href="#turn">Revisit</a>
+    <a href="#memory">Memory</a>
+    <a href="#worlds">Worlds</a>
+    <a href="#live">Live</a>
+    <a href="#paper">Paper</a>
   </nav>
-  <main>
-    <header class="hero" id="top">
-      <h1>LOCI: Spatial Linear Memory <br>for Streaming World Models</h1>
+</header>
+
+<main>
+  <!-- HERO: full-bleed loop + live yaw ring -->
+  <section class="hero" id="top" aria-label="LOCI">
+    <div class="hero-pin">
+    <video class="hero-video" id="hero-video" muted playsinline loop autoplay preload="auto" aria-hidden="true"></video>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-shade2" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <p class="eyebrow">LOCI &nbsp;·&nbsp; Spatial Linear Memory for Streaming World Models</p>
+      <h1 class="hero-title"><span>Look away.</span><span>Come back.</span><span class="glow">It's still there.</span></h1>
+      <p class="hero-sub">A streaming world model that remembers the places it has seen, so every revisit shows the same world.</p>
+    </div>
+    <figure class="ring-wrap hero-ring" aria-hidden="true">
+      <svg class="ring" id="hero-ring" viewBox="-60 -60 120 120"></svg>
+      <figcaption><span class="ring-yaw" id="hero-yaw">0°</span><span class="ring-state" id="hero-state">first look</span></figcaption>
+    </figure>
+    <p class="hero-meta" id="hero-meta"></p>
+    <a class="scroll-cue" href="#credits" aria-label="Scroll down"><i></i></a>
+    <!-- CREDITS: fades in over the same video on the first scroll -->
+    <div class="hero-credits" id="credits" aria-label="Paper">
+      <h2 class="credits-title">LOCI: Spatial Linear Memory for Streaming World Models</h2>
       <p class="authors">Ji Xia<sup>1</sup> · Tingting Liao<sup>1</sup> · Xuezhi Liang<sup>1</sup> · Hao Li<sup>2,3</sup> · Guangyi Liu<sup>1,†</sup></p>
       <p class="affiliations"><sup>1</sup> Institute of Foundation Models, Mohamed bin Zayed University of Artificial Intelligence <br><sup>2</sup> Mohamed bin Zayed University of Artificial Intelligence &nbsp; <sup>3</sup> Pinscreen <br><span>† Corresponding author</span></p>
-      <div class="links"><a href="assets/paper.pdf">Paper <span aria-hidden="true">↗</span></a><span aria-hidden="true">/</span><a href="https://github.com/xiaji2021/LOCI">Code <span aria-hidden="true">↗</span></a></div>
-      <p class="release-note">Inference code &amp; model weights coming soon</p>
-      <div class="rule" aria-hidden="true"></div>
-    </header>
+      <p class="credit-links"><a href="assets/paper.pdf">Paper</a><a href="https://arxiv.org/abs/placeholder" class="arxiv-link" hidden>arXiv</a><a href="https://github.com/xiaji2021/LOCI">Code</a><a href="#bibtex">BibTeX</a><span>Inference code &amp; model weights coming soon</span></p>
+    </div>
+    </div>
+  </section>
 
-    <section id="key-idea">
-      <div class="sec-head"><span class="n">1</span><h2>Key idea of LOCI</h2></div>
-      <p class="lead">When a camera revisits a previously observed region, a video world model should reproduce what was there before. LOCI combines a compact recurrent memory with a cache of visual observations, using projective camera geometry to guide memory reads and writes.</p>
-      <figure>
-        <a class="diagram" href="assets/overview.png" aria-label="Open full-size method diagram"><img src="assets/overview.png" alt="LOCI observes a scene, accumulates spatial context in recurrent memory, focuses on co-visible history and recovers a previously observed view." width="1994" height="621"></a>
-        <figcaption><span class="fig-label">Figure 1.</span>Projectively conditioned recurrent memory integrates historical context, while retained visual observations preserve detail. Spatial context helps retrieve relevant visual history. Attention weights are schematic; click the diagram to enlarge.</figcaption>
-      </figure>
-      <dl class="method-points">
-        <div><dt>Spatial recurrent memory.</dt><dd>Camera geometry enters both memory addressing and stored content in recurrent linear-attention blocks.</dd></div>
-        <div><dt>Retained visual detail.</dt><dd>Cache-backed attention blocks retain past observations and read them using accumulated scene context.</dd></div>
-        <div><dt>Bounded streaming.</dt><dd>A bounded bank of retained observations supports long rollouts at constant memory, alongside recurrent state that summarises history.</dd></div>
-      </dl>
-    </section>
+  <!-- STATEMENT -->
+  <section class="statement" aria-label="Idea">
+    <p class="big reveal-words">Turn around in most generated worlds and the street behind you is gone. <em>LOCI keeps it.</em></p>
+  </section>
 
-    <section id="results">
-      <div class="sec-head"><span class="n">2</span><h2>Long-range recall</h2><span class="sec-note">Recorded trajectory · GT history as memory</span></div>
-      <p class="lead">The model is given a recorded history of the scene, then generates a continuation along the recorded camera path. The video below compares the matching ground-truth continuation, LOCI and a full-softmax model.</p>
-      <figure>
-        <div class="stage"><video controls muted playsinline preload="metadata" aria-label="Tokyo continuation: ground truth, LOCI and full softmax"><source src="assets/tokyo-recall.mp4" type="video/mp4"></video></div>
-        <figcaption><span class="fig-label">Figure 2.</span><strong><i>Tokyo, long-range recall.</i></strong> 75.1 s ground-truth history as memory → 44.9 s generated continuation. The full recorded trajectory is 120.1 s; only the continuation is shown here.</figcaption>
-      </figure>
-    </section>
-
-    <section id="resources">
-      <div class="sec-head"><span class="n">3</span><h2>Paper &amp; code</h2></div>
-      <p class="lead">The paper is available now. Inference code, model weights and examples are being prepared for release.</p>
-      <div class="resource-list">
-        <a href="assets/paper.pdf"><span>Paper PDF</span><span>Read the paper ↗</span></a>
-        <a href="https://github.com/xiaji2021/LOCI"><span>Code repository</span><span>README preview ↗</span></a>
-        <div><span>Inference code &amp; model weights</span><span>Coming soon</span></div>
+  <!-- SCROLL-SCRUBBED TURN -->
+  <section class="turn" id="turn" aria-label="Move and come back">
+    <div class="turn-sticky">
+      <div class="turn-head">
+        <p class="kicker" id="turn-kicker">Scroll to move the camera</p>
+        <p class="turn-cap" id="turn-cap" aria-live="polite">Start here.</p>
       </div>
-    </section>
+      <div class="turn-stage">
+        <video id="turn-video" muted playsinline preload="none" aria-label="Generated video: the camera steps aside, circles the scene and returns to the first view"></video>
+        <div class="turn-hud" aria-hidden="true">
+          <div class="turn-deg"><b id="turn-dist">0.0</b><span>m walked</span></div>
+          <div class="turn-deg"><b id="turn-deg">0</b><span>° turned</span></div>
+          <figure class="ring-wrap"><svg class="ring" id="turn-ring" viewBox="-60 -60 120 120"></svg></figure>
+        </div>
+        <div class="turn-bar" aria-hidden="true"><i id="turn-bar"></i></div>
+      </div>
+      <p class="turn-meta" id="turn-meta"></p>
+    </div>
+  </section>
 
-    <section id="citation">
-      <div class="sec-head"><span class="n">4</span><h2>Citation</h2><button type="button" id="copy-citation">Copy BibTeX</button></div>
-      <pre><code id="bibtex">@article{xia2026loci,
+  <!-- THEN / NOW -->
+  <section class="thennow" id="thennow" aria-label="Then and now">
+    <div class="wrap">
+      <h2 class="display reveal">Then. <span class="dim">Now.</span></h2>
+      <p class="lede reveal">Same camera pose, a minute apart. On the left, the first time the model drew the view. On the right, the view after a full turn and a walk. Drag to compare.</p>
+      <div class="tn-stage reveal" id="tn-stage">
+        <img class="tn-img tn-then" id="tn-then" alt="" loading="lazy" draggable="false">
+        <div class="tn-clip" id="tn-clip"><img class="tn-img tn-now" id="tn-now" alt="" loading="lazy" draggable="false"></div>
+        <span class="tn-tag l" id="tn-tag-then">First seen</span>
+        <span class="tn-tag r" id="tn-tag-now">Revisited</span>
+        <div class="tn-handle" id="tn-handle" role="slider" tabindex="0" aria-label="Compare first view and revisit" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
+      </div>
+      <div class="tn-strip reveal" id="tn-strip" role="list" aria-label="Scenes"></div>
+    </div>
+  </section>
+
+  <!-- MEMORY -->
+  <section class="memory" id="memory" aria-label="What LOCI keeps">
+    <div class="wrap">
+      <h2 class="display reveal">What it keeps.</h2>
+      <p class="lede reveal">Two kinds of memory work together. A recurrent state takes in every frame and stays the same size, however long the stream runs. Beside it, a bounded set of retained frames keeps sharp detail of the views that cover the scene best.</p>
+      <div class="mem-grid reveal">
+        <div class="mem-media">
+          <video id="mem-video" muted playsinline loop preload="none" aria-label="Generated video: turn, walk forward, return and turn back"></video>
+          <figure class="ring-wrap mem-ring" aria-hidden="true"><svg class="ring" id="mem-ring" viewBox="-60 -60 120 120"></svg></figure>
+        </div>
+        <ul class="mem-legend" id="mem-legend">
+          <li data-k="sink"><i></i><div><b>Sink frame</b><span>The first view. Always kept.</span></div><em id="n-sink">1</em></li>
+          <li data-k="anchor"><i></i><div><b>Anchors</b><span>Early views, pinned and never dropped.</span></div><em id="n-anchor">0</em></li>
+          <li data-k="bank"><i></i><div><b>Coverage bank</b><span>Older views chosen to cover the scene, up to 20.</span></div><em id="n-bank">0</em></li>
+          <li data-k="recent"><i></i><div><b>Recent window</b><span>The last 8 frames, for smooth motion.</span></div><em id="n-recent">0</em></li>
+          <li data-k="state"><i></i><div><b>Recurrent state</b><span>KDA layers fold every frame into a fixed-size state, read through camera geometry.</span></div><em id="n-state">0</em></li>
+        </ul>
+      </div>
+      <div class="mem-timeline reveal">
+        <svg id="mem-tl" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="mem-axis"><span>0 s</span><span id="mem-total"></span></div>
+        <div class="kda-band" aria-hidden="true"><i id="kda-fill"></i><span>recurrent state · constant size</span></div>
+      </div>
+      <p class="note reveal">Schematic of the bounded memory mode, simulated from this clip's camera path (frame roles are illustrative, not read from the model). Attention sees at most 34 latent frames: sink, ≤20 retained, ≤8 recent, and the 5 being generated.</p>
+    </div>
+  </section>
+
+  <!-- REAL TIME -->
+  <section class="worlds" id="worlds" aria-label="Wall of worlds">
+    <div class="wrap">
+      <h2 class="display reveal">Any world. <span class="dim">Same memory.</span></h2>
+      <p class="lede reveal">Each world starts from a single image: a photograph, an engine render, or a generated painting. Open one to watch it explored along several camera paths.</p>
+    </div>
+    <div class="wall" id="wall"></div>
+  </section>
+
+  <!-- PAPER -->
+  <section class="live" id="live" aria-label="Real time">
+    <div class="wrap">
+      <h2 class="display reveal">Live. <span class="dim">On one GPU.</span></h2>
+      <p class="lede reveal">A 4-step distilled student streams the world as you steer it. This clip is a recording of the interactive demo: the keys lit below are the ones that were held.</p>
+      <div class="live-stage reveal">
+        <video id="live-video" muted playsinline loop preload="none" aria-label="Recording of the interactive demo"></video>
+        <div class="keys" aria-hidden="true">
+          <div class="krow"><span class="kc" data-key="w">W</span></div>
+          <div class="krow"><span class="kc" data-key="a">A</span><span class="kc" data-key="s">S</span><span class="kc" data-key="d">D</span></div>
+        </div>
+        <div class="keys keys-r" aria-hidden="true">
+          <div class="krow"><span class="kc" data-key="up">↑</span></div>
+          <div class="krow"><span class="kc" data-key="left">←</span><span class="kc" data-key="down">↓</span><span class="kc" data-key="right">→</span></div>
+        </div>
+        <div class="live-clock" aria-hidden="true"><b id="live-sc">0.69</b> s <span>to generate the current 1.25 s chunk</span></div>
+      </div>
+      <p class="note reveal" id="live-note"></p>
+      <dl class="stats" id="stats"></dl>
+    </div>
+  </section>
+
+  <!-- WALL OF WORLDS -->
+  <section class="paper" id="paper" aria-label="Paper and code">
+    <div class="wrap">
+      <h2 class="display reveal">Read more.</h2>
+      <div class="res reveal">
+        <a href="assets/paper.pdf"><span>Paper</span><small>PDF</small><i aria-hidden="true">↗</i></a>
+        <a href="https://github.com/xiaji2021/LOCI"><span>Code</span><small>GitHub</small><i aria-hidden="true">↗</i></a>
+        <div><span>Weights</span><small>Inference code &amp; model weights coming soon</small></div>
+      </div>
+      <div class="cite reveal" id="citation">
+        <div class="cite-head"><h3>BibTeX</h3><button type="button" id="copy-citation">Copy</button></div>
+        <pre><code id="bibtex">@article{xia2026loci,
   title={LOCI: Spatial Linear Memory for Streaming World Models},
   author={Xia, Ji and Liao, Tingting and Liang, Xuezhi and Li, Hao and Liu, Guangyi},
   year={2026}
 }</code></pre>
-      <p class="copy-status" id="copy-status" role="status"></p>
-    </section>
-  </main>
+        <p class="copy-status" id="copy-status" role="status"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>LOCI · Spatial Linear Memory for Streaming World Models</span>
+  <span>All videos on this page are model outputs, shown without retouching.</span>
+  <a href="https://github.com/xiaji2021/LOCI">GitHub ↗</a>
+  <span class="ver">build h1 · 2026-10-01</span>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="World viewer" hidden>
+  <div class="lb-box">
+    <button class="lb-x" id="lb-x" type="button" aria-label="Close">×</button>
+    <div class="lb-media"><video id="lb-video" controls muted playsinline preload="none"></video></div>
+    <div class="lb-info"><h3 id="lb-title"></h3><p id="lb-style"></p></div>
+    <div class="lb-paths" id="lb-paths" role="list" aria-label="Camera paths"></div>
+  </div>
 </div>
-<footer><span>LOCI · Spatial Linear Memory for Streaming World Models</span><a href="https://github.com/xiaji2021/LOCI">GitHub ↗</a></footer>
-<script>
-  const links = [...document.querySelectorAll('.toc ol a')];
-  const sections = links.map(link => document.querySelector(link.getAttribute('href')));
-  function updateContents() {
-    let active = -1;
-    sections.forEach((section, index) => { if (section.getBoundingClientRect().top <= innerHeight * .35) active = index; });
-    links.forEach((link, index) => {
-      const selected = index === active;
-      link.classList.toggle('on', selected);
-      if (selected) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
-    });
-    const length = document.documentElement.scrollHeight - innerHeight;
-    document.querySelector('.progress i').style.width = (length > 0 ? Math.min(100, scrollY / length * 100) : 0) + '%';
-  }
-  let scheduled = false;
-  addEventListener('scroll', () => { if (!scheduled) { scheduled = true; requestAnimationFrame(() => { updateContents(); scheduled = false; }); } }, {passive:true});
-  addEventListener('resize', updateContents);
-  updateContents();
-  document.getElementById('copy-citation').addEventListener('click', async () => {
-    const status = document.getElementById('copy-status');
-    try { await navigator.clipboard.writeText(document.getElementById('bibtex').textContent); status.textContent = 'Citation copied.'; }
-    catch { status.textContent = 'Select the citation above to copy it.'; }
-  });
-</script>
+
+<script src="app.js?v=h4" defer></script>
 </body>
 </html>

@@ -79,10 +79,19 @@ img,video,svg{display:block;max-width:100%}
 .hero-credits{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 var(--gut);opacity:0;transform:translateY(24px);pointer-events:none;will-change:opacity,transform}
 .hero-credits .credits-title,.hero-credits .authors{color:#fff}
 .hero-credits .affiliations{color:rgba(255,255,255,.72)}
-.hero-credits .credit-links a{color:#fff;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
-.hero-credits .credit-links a:hover{color:var(--mem);border-color:var(--mem)}
-.hero-credits .credit-links span{color:rgba(255,255,255,.5)}
-.credits-title{font-size:clamp(24px,3vw,40px);max-width:22em;letter-spacing:-.025em;line-height:1.15;color:var(--ink);font-weight:600;margin:0 0 26px}
+.hero-credits .credit-links{gap:12px;margin-top:30px}
+.hero-credits .credit-links .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;border:1.5px solid rgba(255,255,255,.55);color:#fff;font-size:17px;font-weight:600;text-decoration:none;background:rgba(255,255,255,.06);backdrop-filter:blur(6px);transition:background .2s,border-color .2s,color .2s}
+.hero-credits .credit-links .btn i{font-style:normal;font-weight:400;opacity:.8}
+.hero-credits .credit-links a.btn:hover{background:var(--mem);border-color:var(--mem);color:#111}
+.hero-credits .credit-links .btn.ghost{border-color:rgba(255,255,255,.3);background:transparent}
+.hero-credits .credit-links .btn.soon{border-style:dashed;border-color:rgba(255,255,255,.35);color:rgba(255,255,255,.7);cursor:default}
+.hero-credits .credit-links .btn.soon em{font-style:normal;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.hero-credits .credit-links a:after{content:none}
+.hero-credits .credit-links [hidden]{display:none}
+.hero-credits .credit-links span.btn{flex-basis:auto;font-size:17px}
+.hero-credits .authors{font-size:clamp(17px,1.9vw,22px)}
+.hero-credits .affiliations{font-size:14.5px}
+.credits-title{font-size:clamp(30px,4.2vw,58px);max-width:18em;letter-spacing:-.025em;line-height:1.15;color:var(--ink);font-weight:600;margin:0 0 26px}
 .authors{font-size:clamp(16px,1.8vw,19px);color:var(--ink);margin:0 0 12px}
 .authors sup,.affiliations sup{font-size:.62em}
 .affiliations{font-size:13.5px;color:var(--mut);line-height:1.7;margin:0}
@@ -243,6 +252,7 @@ pre{margin:0;padding:22px;border-radius:16px;background:var(--panel);font:12.5px
   .res{grid-template-columns:1fr}.res>a,.res>div{min-height:110px}
 }
 @media (max-width:600px){
+  .hero-credits .credit-links .btn{padding:10px 16px;font-size:15px}
   body{font-size:16px}
   .bar nav a:nth-child(n+4){display:none}
   .hero-ring{width:88px;right:16px;top:64px;bottom:auto}

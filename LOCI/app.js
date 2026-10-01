@@ -228,7 +228,7 @@ async function turn(S) {
   };
   if (RM) { // no scroll-jacking: a normal player, overlay still synced
     v.controls = true; v.loop = true;
-    loopWhileVisible(sec, () => render(v.currentTime));
+    loopWhileVisible(sec, () => render(v.currentTime * (S.speed || 1)));
     return;
   }
   // Scroll -> clip time so that equal scroll = equal apparent camera motion (the clip's turn rate is uneven),
@@ -249,7 +249,7 @@ async function turn(S) {
     const goal = timeAt(p), k = 1 - Math.exp(-dtR / 0.22), maxStep = 1.4 * dtR;   // <= 1.4 s of clip per real second
     target += Math.max(-maxStep, Math.min(maxStep, (goal - target) * k));
     if (Math.abs(target - shown) > 1 / 60) {
-      if (v.readyState >= 1 && !v.seeking) { v.currentTime = target; }
+      if (v.readyState >= 1 && !v.seeking) { v.currentTime = target / (S.speed || 1); }   // clip is encoded at S.speed x; target is in source seconds
       render(target); shown = target;
     }
   });

@@ -105,7 +105,9 @@ function lazyPoster(v, url, sec) {
 }
 /* ---------- generic page chrome ---------- */
 const bar = $('#bar');
-addEventListener('scroll', () => bar.classList.toggle('solid', scrollY > 40), { passive: true });
+const heroSec = $('#top');
+const barUpd = () => bar.classList.toggle('solid', scrollY > heroSec.offsetHeight - 48);
+addEventListener('scroll', barUpd, { passive: true }); addEventListener('resize', barUpd); barUpd();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
 document.querySelectorAll('.reveal').forEach(n => io.observe(n));
 
@@ -141,32 +143,29 @@ $('#copy-citation').addEventListener('click', async () => {
   catch { st.textContent = 'Select the citation above to copy it.'; }
 });
 
-/* ---------- hero first scroll: slogan fades out, paper credits fade in over the same (pinned) video ----------
-   Bound at startup (bug fix h1): it used to be bound only after manifest.json and the hero trajectory had loaded,
-   so on a slow or failed load scrolling did nothing. Same curves as 10a7e1b. */
+/* ---------- hero (v2): screen 1 = paper credits over the video; first scroll fades them out and the slogan in ----------
+   Same pinned frame and curves as the approved 10a7e1b transition, with the two screens swapped (user 10-03). */
 (function heroScroll() {
   const pin = $('.hero-pin'), copy = $('.hero-copy'), cred = $('#credits'), shade2 = $('.hero-shade2'), meta = $('#hero-meta'), cue = $('.scroll-cue'), ringEl = $('.hero-ring');
+  const lines = [...copy.querySelectorAll('.hero-title span, .hero-sub')];
   const c01 = x => Math.min(1, Math.max(0, x));
   const onScroll = () => {
     if (RM) return;
     const p = c01(window.scrollY / pin.clientHeight);
     const out = c01((p - 0.04) / 0.32), inn = c01((p - 0.3) / 0.4);
-    copy.style.opacity = ringEl.style.opacity = meta.style.opacity = cue.style.opacity = String(1 - out);
-    copy.style.transform = `translateY(${(-36 * out).toFixed(1)}px)`;
-    cred.style.opacity = String(inn); cred.style.transform = `translateY(${(24 * (1 - inn)).toFixed(1)}px)`;
-    cred.style.pointerEvents = inn > 0.5 ? 'auto' : 'none';
-    shade2.style.opacity = String(inn);
+    cred.style.opacity = cue.style.opacity = String(1 - out);
+    cred.style.transform = `translateY(${(-36 * out).toFixed(1)}px)`;
+    cred.style.pointerEvents = out < 0.5 ? 'auto' : 'none';
+    shade2.style.opacity = String(1 - inn);
+    copy.style.opacity = ringEl.style.opacity = meta.style.opacity = String(inn);
+    copy.style.transform = `translateY(${(24 * (1 - inn)).toFixed(1)}px)`;
+    lines.forEach((l, i) => { const k = c01((inn - i * 0.12) / 0.55); l.style.opacity = String(k); l.style.transform = `translateY(${(0.35 * (1 - k)).toFixed(3)}em)`; });
   };
   addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); onScroll();
-  // #credits sits inside the pinned frame, so a plain anchor jump lands at scroll 0 with the credits still hidden (bug fix h1):
-  // every link to #credits, a page opened at #credits, and keyboard focus entering the credits scroll to the fully-revealed point.
-  const toCredits = smooth => { if (!RM) scrollTo({ top: pin.clientHeight, behavior: smooth && !RM ? 'smooth' : 'auto' }); };
-  document.querySelectorAll('a[href="#credits"]').forEach(a => a.addEventListener('click', e => { if (RM) return; e.preventDefault(); toCredits(true); history.replaceState(null, '', '#credits'); }));
-  cred.addEventListener('focusin', () => { if (!RM && window.scrollY < pin.clientHeight * 0.95) toCredits(false); });
-  if (location.hash === '#credits') addEventListener('load', () => toCredits(false));
-  addEventListener('hashchange', () => { if (location.hash === '#credits') toCredits(false); });
-  // reduced motion (bug fix h1): nothing is pinned, so the credits stack under the video instead of being squeezed beside the slogan
-  if (RM) pin.after(cred);
+  // the credits are the first screen now: links to #credits go back to the top
+  document.querySelectorAll('a[href="#credits"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' }); }));
+  // reduced motion: nothing is pinned; credits stay over the video, the slogan stacks below it
+  if (RM) pin.after(copy);
 })();
 
 /* ---------- main ---------- */
@@ -336,10 +335,10 @@ async function memory(Mm) {
   // timeline svg
   const svg = $('#mem-tl'); svg.setAttribute('viewBox', `0 0 ${N} 10`);
   const cells = [];
-  for (let l = 0; l < N; l++) cells.push(el('rect', { x: l + 0.12, y: 0, width: 0.76, height: 10, rx: 0.2, fill: '#1b1b1e' }, svg));
-  const head = el('rect', { x: 0, y: -1, width: 0.25, height: 12, fill: '#fff' }, svg);
+  for (let l = 0; l < N; l++) cells.push(el('rect', { x: l + 0.12, y: 0, width: 0.76, height: 10, rx: 0.2, fill: '#e8e8ed' }, svg));
+  const head = el('rect', { x: 0, y: -1, width: 0.25, height: 12, fill: '#1d1d1f' }, svg);
   $('#mem-total').textContent = ((N - 1) * t.dt).toFixed(0) + ' s';
-  const C = { sink: '#ffffff', anchor: '#f2b35b', bank: 'rgba(242,179,91,.5)', recent: '#8fd3ff', cur: 'rgba(255,255,255,.55)', gone: '#3a2f1f', fut: '#1b1b1e' };
+  const C = { sink: '#ffffff', sinkCell: '#1d1d1f', anchor: '#e08a2c', bank: 'rgba(226,140,44,.45)', recent: '#3d9bd6', cur: 'rgba(0,0,0,.28)', gone: '#efe4d6', fut: '#e8e8ed' };
   const nA = $('#n-anchor'), nB = $('#n-bank'), nR = $('#n-recent'), nS = $('#n-state'), band = $('.kda-band');
   let lastC = -1;
   loopWhileVisible(sec, () => {
@@ -354,7 +353,7 @@ async function memory(Mm) {
     let na = 0, nb = 0;
     for (let l = 0; l < N; l++) {
       let f;
-      if (l === 0) f = C.sink;
+      if (l === 0) f = C.sinkCell;
       else if (l > s.committed) f = l <= s.committed + CH ? C.cur : C.fut;
       else if (rset.has(l)) { f = C.recent; marks.push({ yaw: t.yaw[l], color: C.recent, o: .9 }); }
       else if (bset.has(l)) { const a = PINS.has(l); a ? na++ : nb++; f = a ? C.anchor : C.bank; marks.push({ yaw: t.yaw[l], color: '#f2b35b', o: a ? 1 : .55 }); }

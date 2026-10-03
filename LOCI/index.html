@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>LOCI: Spatial Linear Memory for Streaming World Models</title>
   <meta name="description" content="LOCI is a streaming world model with spatial memory. Look away, come back, and the world is still there.">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="manifest.json" as="fetch" crossorigin>
-  <link rel="stylesheet" href="style.css?v=h10">
+  <link rel="stylesheet" href="style.css?v=v2a">
 </head>
 <body>
 <a class="skip" href="#credits">Skip to paper details</a>
@@ -16,16 +16,17 @@
 <header class="bar" id="bar">
   <a class="bar-mark" href="#top">LOCI</a>
   <nav aria-label="Sections">
-    <a href="#turn">Revisit</a>
-    <a href="#memory">Memory</a>
+    <a href="#abstract">Abstract</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
     <a href="#worlds">Worlds</a>
     <a href="#live">Live</a>
-    <a href="#paper">Paper</a>
+    <a href="#paper">BibTeX</a>
   </nav>
 </header>
 
 <main>
-  <!-- HERO: full-bleed loop + live yaw ring -->
+  <!-- HERO (v2): screen 1 = paper credits over the full-bleed loop; screen 2 = slogan + live yaw ring -->
   <section class="hero" id="top" aria-label="LOCI">
     <div class="hero-pin">
     <video class="hero-video" id="hero-video" muted playsinline loop autoplay preload="auto" aria-hidden="true"></video>
@@ -42,13 +43,35 @@
     </figure>
     <p class="hero-meta" id="hero-meta"></p>
     <a class="scroll-cue" href="#credits" aria-label="Scroll down"><i></i></a>
-    <!-- CREDITS: fades in over the same video on the first scroll -->
+    <!-- CREDITS: first screen; fades out on the first scroll -->
     <div class="hero-credits" id="credits" aria-label="Paper">
       <h2 class="credits-title">LOCI: Spatial Linear Memory for Streaming World Models</h2>
       <p class="authors">Ji Xia<sup>1</sup> · Tingting Liao<sup>1</sup> · Xuezhi Liang<sup>1</sup> · Hao Li<sup>2,3</sup> · Guangyi Liu<sup>1,†</sup></p>
       <p class="affiliations"><sup>1</sup> Institute of Foundation Models, Mohamed bin Zayed University of Artificial Intelligence <br><sup>2</sup> Mohamed bin Zayed University of Artificial Intelligence &nbsp; <sup>3</sup> Pinscreen <br><span>† Corresponding author</span></p>
       <p class="credit-links"><a class="btn" href="assets/paper.pdf">Paper <i>↗</i></a><a class="btn arxiv-link" href="https://arxiv.org/abs/2609.40222">arXiv <i>↗</i></a><a class="btn" href="https://github.com/xiaji2021/LOCI">Code <i>↗</i></a><a class="btn" href="https://huggingface.co/datasets/sum0214/LOCI-revisit-data">Dataset <i>↗</i></a><span class="btn soon" aria-disabled="true">Checkpoints <em>coming soon</em></span><a class="btn ghost" href="#bibtex">BibTeX</a></p>
     </div>
+    </div>
+  </section>
+
+  <!-- ABSTRACT + TEASER (from the paper) -->
+  <section class="sec abstract" id="abstract" aria-label="Abstract">
+    <div class="wrap">
+      <div class="abs-grid">
+        <div>
+          <p class="kicker">Abstract</p>
+          <p class="abs-text">When a camera revisits a previously observed region, a video world model should reproduce what was there before. This requires both remembering past observations and retrieving the right one for the current viewpoint. Key–value caches preserve visual detail but grow with video length; recurrent memory is compact but compresses history into a fixed-size state, so individual past observations are no longer directly accessible. We introduce LOCI, a hybrid spatial-memory architecture that keeps both representations. In half of the transformer blocks, main attention keeps a key–value cache of past observations; in the other half, it is restricted to the current chunk and complemented by a recurrent linear-attention memory whose reads and writes are conditioned on projective camera geometry, so viewpoint enters both memory addressing and stored content. Recurrent readouts flow into subsequent cache-backed blocks and supply their queries with accumulated scene context. On the public MIND memory benchmark and on held-out recorded trajectories, LOCI reproduces revisited content more faithfully than representative world models and a same-recipe full-softmax model; with full history, it lowers peak memory at equal length by about 30% relative to full softmax. With a bounded bank of retained observations, it streams long videos at constant memory and remains more faithful than full softmax under the same budget.</p>
+        </div>
+        <dl class="hl">
+          <div><dt>+0.89<small>dB</small></dt><dd>PSNR over a same-recipe full-softmax model under an identical bounded KV budget (MIND, all 50 segments; better in 44 of 50)</dd></div>
+          <div><dt>+1.82<small>dB</small></dt><dd>PSNR above the strongest streaming world model we run on MIND (HY-WorldPlay)</dd></div>
+          <div><dt>~30<small>%</small></dt><dd>lower peak memory than full softmax at equal length, full history; reachable length 157 s → 225 s</dd></div>
+          <div><dt>300<small>s</small></dt><dd>streamed at a constant 23.6 GiB with bounded sparse access</dd></div>
+        </dl>
+      </div>
+      <figure class="fig wide">
+        <a href="figs/fig1AB-P.webp" target="_blank" rel="noopener"><img src="figs/fig1AB-P.webp" width="2400" height="1064" alt="Teaser: returning to a previously seen place. LOCI restores the tree and the building; full softmax replaces them." loading="lazy"></a>
+        <figcaption><b>Returning to a previously seen place.</b> Each model continues the recorded video (top: full history; bottom: held-out Tokyo map, same bounded KV budget). Full softmax, trained with the same recipe, replaces the tree with a facade and loses the building; LOCI restores both (PSNR against ground truth; insets magnify the boxed region). Band: a fixed-size recurrent state shapes the queries into the retained KV.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -78,7 +101,7 @@
   </section>
 
   <!-- THEN / NOW -->
-  <section class="thennow" id="thennow" aria-label="Then and now">
+  <section class="sec thennow" id="thennow" aria-label="Then and now">
     <div class="wrap">
       <h2 class="display reveal">Then. <span class="dim">Now.</span></h2>
       <p class="lede reveal">Same camera pose, a minute apart. On the left, the first time the model drew the view. On the right, the view after a full turn and a walk. Drag to compare.</p>
@@ -93,8 +116,33 @@
     </div>
   </section>
 
+  <!-- METHOD (from the paper) -->
+  <section class="sec method" id="method" aria-label="Method">
+    <div class="wrap">
+      <p class="kicker">Method</p>
+      <h2 class="display reveal">Two traces of the past. <span class="dim">Working together.</span></h2>
+      <p class="lede reveal">A camera-conditioned recurrent state summarizes the entire history at fixed size, while retained key–value (KV) features preserve observation-level evidence. Because the recurrent readout is added to the token features from which later layers form their queries, accumulated scene context can direct attention in the retained KV toward observations relevant to the current view.</p>
+      <figure class="fig wide reveal">
+        <a href="figs/fig1-v4.webp" target="_blank" rel="noopener"><img src="figs/fig1-v4.webp" width="2400" height="484" alt="Key idea of LOCI" loading="lazy"></a>
+        <figcaption><b>Key idea.</b> Projectively conditioned recurrent memory integrates historical context, while retained KV preserves observation-level detail. Recurrent readouts update the features used by subsequent historical attention, connecting the two representations through the feature stream.</figcaption>
+      </figure>
+      <div class="m-split">
+        <figure class="fig reveal">
+          <a href="figs/fig_overview_v3.webp" target="_blank" rel="noopener"><img src="figs/fig_overview_v3.webp" width="1994" height="621" alt="Conceptual illustration of LOCI" loading="lazy"></a>
+          <figcaption><b>Overview.</b> A camera-conditioned recurrent state accumulates context from past observations; at a revisit, its readout shapes the queries with which later historical-attention blocks attend to co-visible retained observations.</figcaption>
+        </figure>
+        <ol class="cards reveal">
+          <li><b>Hybrid layout</b><span>The 30-block Wan video transformer generates chunk by chunk. Fifteen hybrid blocks combine intra-chunk softmax attention with recurrent Kimi Delta Attention (KDA); the other fifteen keep softmax attention with explicit historical keys and values.</span></li>
+          <li><b>Projective camera encoding</b><span>PRoPE conditions the recurrent queries, keys and values on each token's camera ray, so what the memory writes and reads depends on viewpoint, a cue distinct from temporal proximity.</span></li>
+          <li><b>Chunk-synchronous memory</b><span>Every token of a chunk reads the state left by preceding chunks; writes revise it token by token with the delta rule. Learned retention is applied once per chunk, so forgetting follows elapsed video time rather than raster order.</span></li>
+          <li><b>Dense or bounded history</b><span>Dense mode attends over the full prefix. Bounded mode keeps a sink frame, a coverage bank of at most 20 older views, the 8 most recent frames and the 5 being generated: at most 34 latent frames, while the recurrent state still carries the whole history.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
   <!-- MEMORY -->
-  <section class="memory" id="memory" aria-label="What LOCI keeps">
+  <section class="sec memory" id="memory" aria-label="What LOCI keeps">
     <div class="wrap">
       <h2 class="display reveal">What it keeps.</h2>
       <p class="lede reveal">Two kinds of memory work together. A recurrent state takes in every frame and stays the same size, however long the stream runs. Beside it, a bounded set of retained frames keeps sharp detail of the views that cover the scene best.</p>
@@ -120,8 +168,87 @@
     </div>
   </section>
 
+  <!-- RESULTS (from the paper) -->
+  <section class="sec results" id="results" aria-label="Results">
+    <div class="wrap">
+      <p class="kicker">Results</p>
+      <h2 class="display reveal">Revisits, measured. <span class="dim">Against the recording.</span></h2>
+      <p class="lede reveal">All our models start from Wan2.2-TI2V-5B and are trained for 5,000 updates; full softmax keeps softmax attention in all 30 blocks under the identical recipe, data and number of updates. The main benchmark is the MIND memory test, scored over the entire prediction segment with the official code. LOCI is evaluated zero-shot: no MIND data is used in training.</p>
+
+      <h3 class="sub reveal">MIND memory test</h3>
+      <div class="tbl reveal">
+        <table>
+          <thead><tr><th>Method</th><th>Params</th><th>Trained on MIND</th><th>n</th><th>MSE ↓</th><th>PSNR ↑</th><th>SSIM ↑</th><th>LPIPS ↓</th></tr></thead>
+          <tbody>
+            <tr class="grp"><td colspan="8">Reference (reported in the GIM-World paper)</td></tr>
+            <tr><td>SSM</td><td>–</td><td>✓</td><td>–</td><td>0.0796</td><td>11.96</td><td>0.395</td><td>0.744</td></tr>
+            <tr><td>FramePack</td><td>–</td><td>✓</td><td>–</td><td>0.0764</td><td>12.04</td><td>0.376</td><td>0.706</td></tr>
+            <tr><td>Context-as-Memory</td><td>–</td><td>✓</td><td>–</td><td>0.0706</td><td>12.50</td><td>0.392</td><td>0.695</td></tr>
+            <tr><td>GIM-World</td><td>1.3B</td><td>✓</td><td>–</td><td>0.0614</td><td>13.40</td><td>0.414</td><td>0.630</td></tr>
+            <tr class="grp"><td colspan="8">Run by us (entire prediction segment)</td></tr>
+            <tr><td>HY-WorldPlay</td><td>8B</td><td>×</td><td>50</td><td>0.0710</td><td>12.54</td><td>0.398</td><td>0.715</td></tr>
+            <tr><td>Matrix-Game 3.0</td><td>5B</td><td>×</td><td>49</td><td>0.0866</td><td>11.69</td><td>0.373</td><td>0.666</td></tr>
+            <tr><td>AlayaWorld</td><td>15B</td><td>×</td><td>50</td><td>0.0908</td><td>11.33</td><td>0.358</td><td>0.683</td></tr>
+            <tr><td>Alaya-EVOKE</td><td>14B</td><td>×</td><td>50</td><td>0.0884</td><td>11.14</td><td>0.347</td><td>0.710</td></tr>
+            <tr><td>LingBot-World</td><td>28B</td><td>×</td><td>50</td><td>0.0955</td><td>11.33</td><td>0.331</td><td>0.703</td></tr>
+            <tr><td>CaR<sup>‡</sup></td><td>5B</td><td>×</td><td>36</td><td>0.0538</td><td>13.85</td><td>0.458</td><td>0.622</td></tr>
+            <tr class="ours"><td>LOCI (ours)</td><td>5B</td><td>×</td><td>50</td><td><b>0.0455</b></td><td><b>14.36</b></td><td><b>0.464</b></td><td><b>0.643</b></td></tr>
+            <tr class="ours"><td>LOCI (bounded sparse)</td><td>5B</td><td>×</td><td>50</td><td>0.0622</td><td>13.02</td><td>0.409</td><td>0.679</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap reveal">Reference numbers are those reported in the GIM-World paper, not re-run by us. Run by us: official weights and default sampling, memory segment provided as context. <sup>‡</sup>CaR: the 36 shortest segments; generation of the 14 longest did not finish (on these 36 segments LOCI obtains 0.0460 / 14.39 / 0.478 / 0.630). Bold: best among models run by us on all segments.</p>
+
+      <figure class="fig wide reveal">
+        <a href="figs/fig_revisit_qualitative.webp" target="_blank" rel="noopener"><img src="figs/fig_revisit_qualitative.webp" width="2400" height="1165" alt="Qualitative revisit comparison on held-out recorded trajectories" loading="lazy"></a>
+        <figcaption><b>Qualitative revisit comparison</b> on held-out recorded trajectories (first frame and camera trajectory as input for all methods). Columns show the first visit, a view after the camera has turned away, and the return to the first viewpoint, with the PSNR of the return frame against ground truth. LOCI restores the previously observed scene on return, whereas the other models replace or distort it.</figcaption>
+      </figure>
+
+      <h3 class="sub reveal">Hybrid vs. full softmax, same backbone, data, recipe and 5,000 updates</h3>
+      <div class="tbl reveal">
+        <table>
+          <thead>
+            <tr><th rowspan="2">Data mixture</th><th rowspan="2">History</th><th rowspan="2">n</th><th colspan="3" class="c">PSNR ↑</th><th colspan="3" class="c">LPIPS ↓</th></tr>
+            <tr><th>Softmax</th><th>LOCI</th><th>Δ [95% CI]</th><th>Softmax</th><th>LOCI</th><th>Δ [95% CI]</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Uniform</td><td>bounded</td><td>50</td><td>12.17</td><td><b>12.85</b></td><td>+0.67 [+0.42, +0.93]</td><td>0.700</td><td><b>0.680</b></td><td>−0.020 [−0.028, −0.011]</td></tr>
+            <tr><td>UE-weighted</td><td>bounded</td><td>50</td><td>12.13</td><td><b>13.02</b></td><td>+0.89 [+0.64, +1.15]</td><td>0.704</td><td><b>0.679</b></td><td>−0.024 [−0.034, −0.015]</td></tr>
+            <tr><td>UE-weighted</td><td>full</td><td>32</td><td>13.90</td><td><b>14.25</b></td><td>+0.35 [+0.08, +0.62]</td><td>0.669</td><td><b>0.641</b></td><td>−0.029 [−0.040, −0.018]</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap reveal">MIND memory test, entire prediction segment; Δ is the paired mean over segments (LOCI − full softmax) with 95% bootstrap intervals. Bounded: both models access the same fixed set of retained frames (first frame, bank of 20, 8 most recent). Full history: the 32 segments completed by both models; full softmax exceeds GPU memory on 7 of the 39 shorter segments, which LOCI completes.</p>
+
+      <div class="r-split">
+        <figure class="fig reveal">
+          <a href="figs/fig_bounded_recall.webp" target="_blank" rel="noopener"><img src="figs/fig_bounded_recall.webp" width="2400" height="986" alt="Long-range recall under the same bounded KV budget" loading="lazy"></a>
+          <figcaption><b>Long-range recall under the same bounded KV budget.</b> Both models receive the recorded video up to the stated time as history and generate the rest; shown are returns to places first seen more than 60 s earlier. Full softmax, which can only attend to the retained frames, replaces the scene; LOCI restores it. On all four trajectories, revisit PSNR is +0.68 to +1.93 dB higher, with lower LPIPS on each.</figcaption>
+        </figure>
+        <figure class="fig reveal">
+          <a href="figs/fig_local_revisit.webp" target="_blank" rel="noopener"><img src="figs/fig_local_revisit.webp" width="2400" height="1180" alt="Localized consistency at short-horizon revisits" loading="lazy"></a>
+          <figcaption><b>Localized consistency at short-horizon revisits.</b> Earlier ground-truth view, ground-truth revisit, and the revisits generated by LOCI and by full softmax; outlines mark each model's worst 5% of patches by DINOv2 distance. This local error is significantly lower for LOCI (−0.073) and lower in 12 of 13 MIND segments with such revisits.</figcaption>
+        </figure>
+      </div>
+
+      <div class="r-split eff">
+        <figure class="fig reveal">
+          <a href="figs/fig_efficiency_mem.webp" target="_blank" rel="noopener"><img src="figs/fig_efficiency_mem.webp" width="2400" height="1747" alt="Peak GPU memory versus generated length" loading="lazy"></a>
+          <figcaption><b>Cost versus generated length</b> on a 300 s recorded trajectory (single H200, 141 GiB): peak GPU memory.</figcaption>
+        </figure>
+        <div class="reveal">
+          <h3 class="sub">Long-horizon generation and cost</h3>
+          <p class="body">With full history, both models grow in memory and time per chunk until they exhaust the GPU. Replacing half of the historical-KV layers with recurrent state extends the reachable length from 157 s to 225 s and lowers memory at equal length by about 30%. LOCI is also faster than full softmax (7.2 vs. 8.1 s per video second over the first 40 s), since half of its layers attend only within the current chunk.</p>
+          <p class="body">Under bounded sparse access, LOCI runs the full 300 s at a constant 23.6 GiB and constant time per chunk: 15% less memory than full softmax under the same access (27.6 GiB), at the same speed of 5.4 s per video second on one H200.</p>
+          <h3 class="sub">Where attention goes at a revisit</h3>
+          <p class="body">Co-visible tokens make up only about 0.1% of the history, yet the 15 softmax layers of LOCI place 11.1% of their history attention on them, versus 10.45% for the same layers of full softmax (115× vs. 108× over uniform), higher in all 8 clips. Zeroing only the cross-chunk recurrent readout at inference lowers this enrichment: downstream queries use the content of the readout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- REAL TIME -->
-  <section class="worlds" id="worlds" aria-label="Wall of worlds">
+  <section class="sec worlds" id="worlds" aria-label="Wall of worlds">
     <div class="wrap">
       <h2 class="display reveal">Any world. <span class="dim">Same memory.</span></h2>
       <p class="lede reveal">Each world starts from a single image: a photograph, an engine render, or a generated painting. Open one to watch it explored along several camera paths.</p>
@@ -129,8 +256,26 @@
     <div class="wall" id="wall"></div>
   </section>
 
+  <!-- DATA -->
+  <section class="sec data" id="data" aria-label="Data">
+    <div class="wrap">
+      <p class="kicker">Data</p>
+      <div class="d-grid">
+        <div class="reveal">
+          <h3 class="sub">Training data</h3>
+          <p class="body">81-latent windows (about 20 s at 16 fps) drawn from Unreal Engine scenes that we captured and rendered (15,397 windows from 57 maps, 92.8 h of source video), CARLA towns that we rendered (965 windows, 4 maps, 5.4 h), and real walking videos from Sekai. No MIND clips are used.</p>
+        </div>
+        <div class="reveal">
+          <h3 class="sub">Held-out recorded trajectories</h3>
+          <p class="body">Set A: all 18 held-out 40 s walk-through clips from six scenes; each turns 570–950° in total and repeatedly returns to earlier viewpoints. Set B: five more 40 s clips selected for frequent returns. A revisit instant is a pose within 0.15 m and 32° of an earlier one, reached after at least 8 s and after looking away by 60°.</p>
+        </div>
+        <a class="d-card reveal" href="https://huggingface.co/datasets/sum0214/LOCI-revisit-data"><span>Dataset</span><small>Hugging Face · sum0214/LOCI-revisit-data</small><i aria-hidden="true">↗</i></a>
+      </div>
+    </div>
+  </section>
+
   <!-- PAPER -->
-  <section class="live" id="live" aria-label="Real time">
+  <section class="sec live" id="live" aria-label="Real time">
     <div class="wrap">
       <h2 class="display reveal">Live. <span class="dim">On one GPU.</span></h2>
       <p class="lede reveal">A 4-step distilled student streams the world as you steer it. This clip is a recording of the interactive demo: the keys lit below are the ones that were held.</p>
@@ -152,7 +297,7 @@
   </section>
 
   <!-- WALL OF WORLDS -->
-  <section class="paper" id="paper" aria-label="Paper and code">
+  <section class="sec paper" id="paper" aria-label="Paper and code">
     <div class="wrap">
       <h2 class="display reveal">Read more.</h2>
       <div class="res reveal">
@@ -179,7 +324,7 @@
   <span>LOCI · Spatial Linear Memory for Streaming World Models</span>
   <span>All videos on this page are model outputs, shown without retouching.</span>
   <a href="https://github.com/xiaji2021/LOCI">GitHub ↗</a>
-  <span class="ver">build h1 · 2026-10-01</span>
+  <span class="ver">build v2 preview · 2026-10-03</span>
 </footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="World viewer" hidden>
@@ -191,6 +336,6 @@
   </div>
 </div>
 
-<script src="app.js?v=h9" defer></script>
+<script src="app.js?v=v2a" defer></script>
 </body>
 </html>

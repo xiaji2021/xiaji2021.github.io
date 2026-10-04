@@ -434,9 +434,9 @@ pre{color:var(--ink)}
 /* 10-03 user: "整体都偏大 左右空隙小了 看着难受" — narrower column, wider side margins, smaller section type (desktop).
    Hero video and the paper title/credits screen are NOT changed (title size was the user's 10-02 request). */
 @media (min-width:821px){
-  :root{--max:1000px;--gut:clamp(24px,7vw,112px)}
-  .statement{max-width:1000px}
-  .turn-sticky{max-width:960px}
+  :root{--max:1120px;--gut:clamp(20px,5vw,72px)}
+  .statement{max-width:1120px}
+  .turn-sticky{max-width:1060px}
   .display{font-size:clamp(28px,3.6vw,48px)}
   .big{font-size:clamp(24px,3.1vw,40px)}
   .lede{font-size:clamp(15px,1.25vw,17px)}

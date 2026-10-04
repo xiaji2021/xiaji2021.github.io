@@ -31,9 +31,9 @@
  ],
  "encode": "H.264 CRF 18, native 864x480, generator's own output files, first 40.0 s only",
  "hero": {
-  "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/hero.mp4",
-  "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/hero.jpg",
-  "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json",
+  "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/hero.mp4?v=1790894249",
+  "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/hero.jpg?v=1790894242",
+  "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596",
   "segments": [
    [
     0.0,
@@ -892,30 +892,35 @@
   ]
  },
  "scrub": {
-  "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/scrub.mp4",
-  "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/scrub.jpg",
-  "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/O.json",
+  "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/scrub.mp4?v=1791118162",
+  "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/scrub.jpg?v=1791118160",
+  "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/L160.json?v=1791117318",
   "segments": [
    [
     0.0,
+    9.0
+   ],
+   [
+    11.0,
     20.0
    ]
   ],
   "speed": 2.0,
   "title": "Aegean lane",
-  "id": "ai03-photoreal-ai-O",
+  "id": "ai03-photoreal-ai-O-L160",
   "mode": "dense",
   "captions": {
    "start": "Start here.",
    "mid": "Step aside. Round the white houses.",
    "end": "Back where you began. Same lane."
   },
-  "motion": "orbit"
+  "motion": "orbit",
+  "sr_note": "Upscaled 2x by a separate video super-resolution model"
  },
  "memory": {
-  "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/memory.mp4",
-  "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/memory.jpg",
-  "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json",
+  "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/memory.mp4?v=1791064248",
+  "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/memory.jpg?v=1791064245",
+  "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596",
   "segments": [
    [
     0.0,
@@ -925,913 +930,70 @@
   "speed": 2.0,
   "title": "Dune boardwalk",
   "id": "ai05-photoreal-ai-A",
-  "mode": "sparse",
+  "mode": "dense",
   "captions": null,
-  "motion": null,
-  "bank_log": [
-   [
-    1,
-    []
-   ],
-   [
-    6,
-    []
-   ],
-   [
-    11,
-    []
-   ],
-   [
-    16,
-    [
-     1
-    ]
-   ],
-   [
-    21,
-    [
-     1
-    ]
-   ],
-   [
-    26,
-    [
-     1,
-     9
-    ]
-   ],
-   [
-    31,
-    [
-     1,
-     9,
-     16,
-     17
-    ]
-   ],
-   [
-    36,
-    [
-     1,
-     9,
-     16,
-     17,
-     22
-    ]
-   ],
-   [
-    41,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25
-    ]
-   ],
-   [
-    46,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32
-    ]
-   ],
-   [
-    51,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36
-    ]
-   ],
-   [
-    56,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41
-    ]
-   ],
-   [
-    61,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45
-    ]
-   ],
-   [
-    66,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49
-    ]
-   ],
-   [
-    71,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57
-    ]
-   ],
-   [
-    76,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57
-    ]
-   ],
-   [
-    81,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65
-    ]
-   ],
-   [
-    86,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65
-    ]
-   ],
-   [
-    91,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    96,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    101,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    106,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    111,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    116,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    121,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    126,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    131,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    136,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    141,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    146,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    151,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    156,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    161,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    166,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    171,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    176,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    181,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    186,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    191,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    196,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    201,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    206,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    211,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    216,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    221,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ],
-   [
-    226,
-    [
-     1,
-     9,
-     16,
-     17,
-     22,
-     25,
-     29,
-     32,
-     33,
-     36,
-     39,
-     41,
-     45,
-     49,
-     57,
-     65,
-     73
-    ]
-   ]
-  ]
+  "motion": null
  },
  "thennow": [
   {
    "id": "ai06-photoreal-ai-A",
    "mode": "sparse",
    "title": "Sculpture gallery",
-   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai06-photoreal-ai-A-then.jpg",
-   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai06-photoreal-ai-A-now.jpg",
+   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai06-photoreal-ai-A-then.jpg?v=1790890597",
+   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai06-photoreal-ai-A-now.jpg?v=1790890597",
    "then_t": 0.5,
    "now_t": 17.0,
-   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
   },
   {
    "id": "ue15-pyramid-gate-A",
    "mode": "sparse",
    "title": "Pyramid gate",
-   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue15-pyramid-gate-A-then.jpg",
-   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue15-pyramid-gate-A-now.jpg",
+   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue15-pyramid-gate-A-then.jpg?v=1790890597",
+   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue15-pyramid-gate-A-now.jpg?v=1790890597",
    "then_t": 0.5,
    "now_t": 17.0,
-   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
   },
   {
    "id": "ai20-scifi-A",
    "mode": "sparse",
    "title": "Orbital corridor",
-   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai20-scifi-A-then.jpg",
-   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai20-scifi-A-now.jpg",
+   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai20-scifi-A-then.jpg?v=1790890597",
+   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai20-scifi-A-now.jpg?v=1790890597",
    "then_t": 0.5,
    "now_t": 17.0,
-   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
   },
   {
    "id": "ue07-downtown-street-A",
    "mode": "sparse",
    "title": "Downtown street",
-   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue07-downtown-street-A-then.jpg",
-   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue07-downtown-street-A-now.jpg",
+   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue07-downtown-street-A-then.jpg?v=1790890597",
+   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue07-downtown-street-A-now.jpg?v=1790890597",
    "then_t": 0.5,
    "now_t": 17.0,
-   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
   },
   {
    "id": "ai03-photoreal-ai-A",
    "mode": "sparse",
    "title": "Whitewashed lane",
-   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai03-photoreal-ai-A-then.jpg",
-   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai03-photoreal-ai-A-now.jpg",
+   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai03-photoreal-ai-A-then.jpg?v=1790890597",
+   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ai03-photoreal-ai-A-now.jpg?v=1790890597",
    "then_t": 0.5,
    "now_t": 17.0,
-   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
   },
   {
    "id": "ue04-downtown-plaza-A",
    "mode": "sparse",
    "title": "Downtown plaza",
-   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue04-downtown-plaza-A-then.jpg",
-   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue04-downtown-plaza-A-now.jpg",
+   "then": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue04-downtown-plaza-A-then.jpg?v=1790890597",
+   "now": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/tn/sparse-ue04-downtown-plaza-A-now.jpg?v=1790890597",
    "then_t": 0.5,
    "now_t": 17.0,
-   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+   "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
   }
  ],
  "wall": [
@@ -1840,13 +1002,13 @@
    "title": "Colonnade court",
    "style": "Real photo",
    "size": "xl",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/web04-architecture.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/web04-architecture.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/web04-architecture.mp4?v=1790890682",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/web04-architecture.jpg?v=1790890677",
    "trajectories": [
     {
      "v": "A",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/web04-architecture.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/web04-architecture.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/web04-architecture.mp4?v=1790897245",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/web04-architecture.jpg?v=1790897219",
      "segments": [
       [
        0.0,
@@ -1854,7 +1016,7 @@
       ]
      ],
      "speed": 1.0,
-     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
     }
    ]
   },
@@ -1863,13 +1025,13 @@
    "title": "Downtown plaza",
    "style": "Unreal Engine",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue04-downtown-plaza.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue04-downtown-plaza.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue04-downtown-plaza.mp4?v=1790890696",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue04-downtown-plaza.jpg?v=1790890688",
    "trajectories": [
     {
      "v": "A",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue04-downtown-plaza.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue04-downtown-plaza.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue04-downtown-plaza.mp4?v=1790897246",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue04-downtown-plaza.jpg?v=1790897219",
      "segments": [
       [
        0.0,
@@ -1877,7 +1039,7 @@
       ]
      ],
      "speed": 1.0,
-     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
     }
    ]
   },
@@ -1886,13 +1048,13 @@
    "title": "Moorish courtyard",
    "style": "AI photoreal",
    "size": "tall",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai04-photoreal-ai.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai04-photoreal-ai.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai04-photoreal-ai.mp4?v=1790890600",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai04-photoreal-ai.jpg?v=1790890597",
    "trajectories": [
     {
      "v": "A",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai04-photoreal-ai.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai04-photoreal-ai.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai04-photoreal-ai.mp4?v=1790897242",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai04-photoreal-ai.jpg?v=1790897220",
      "segments": [
       [
        0.0,
@@ -1900,7 +1062,7 @@
       ]
      ],
      "speed": 1.0,
-     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
     }
    ]
   },
@@ -1909,13 +1071,13 @@
    "title": "Aegean lane",
    "style": "AI photoreal",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai03-photoreal-ai.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai03-photoreal-ai.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai03-photoreal-ai.mp4?v=1790890604",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai03-photoreal-ai.jpg?v=1790890599",
    "trajectories": [
     {
      "v": "A",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai03-photoreal-ai.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai03-photoreal-ai.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai03-photoreal-ai.mp4?v=1790897238",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai03-photoreal-ai.jpg?v=1790897220",
      "segments": [
       [
        0.0,
@@ -1923,7 +1085,7 @@
       ]
      ],
      "speed": 1.0,
-     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
     }
    ]
   },
@@ -1932,13 +1094,13 @@
    "title": "College lawn",
    "style": "Unreal Engine",
    "size": "wide",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue02-college-hall.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue02-college-hall.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue02-college-hall.mp4?v=1790890612",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue02-college-hall.jpg?v=1790890603",
    "trajectories": [
     {
      "v": "A",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue02-college-hall.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue02-college-hall.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue02-college-hall.mp4?v=1790897247",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue02-college-hall.jpg?v=1790897219",
      "segments": [
       [
        0.0,
@@ -1946,7 +1108,7 @@
       ]
      ],
      "speed": 1.0,
-     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
     }
    ]
   },
@@ -1955,13 +1117,13 @@
    "title": "Forest road",
    "style": "Unreal Engine",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/gts200-dataid8.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/gts200-dataid8.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/gts200-dataid8.mp4?v=1790897229",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/gts200-dataid8.jpg?v=1790897221",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/gts200-dataid8.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/gts200-dataid8.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/gts200-dataid8.mp4?v=1790897237",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/gts200-dataid8.jpg?v=1790897220",
      "segments": [
       [
        13.75,
@@ -1977,13 +1139,13 @@
    "title": "Hangar corridor",
    "style": "Sci-fi",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c14-scifi-render.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c14-scifi-render.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c14-scifi-render.mp4?v=1790897227",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c14-scifi-render.jpg?v=1790897221",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c14-scifi-render.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c14-scifi-render.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c14-scifi-render.mp4?v=1790897237",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c14-scifi-render.jpg?v=1790897220",
      "segments": [
       [
        0.0,
@@ -1999,13 +1161,13 @@
    "title": "Pastel stairway",
    "style": "AI photoreal",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c12-photoreal-ai.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c12-photoreal-ai.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c12-photoreal-ai.mp4?v=1790897225",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c12-photoreal-ai.jpg?v=1790897220",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c12-photoreal-ai.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c12-photoreal-ai.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c12-photoreal-ai.mp4?v=1790897234",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c12-photoreal-ai.jpg?v=1790897220",
      "segments": [
       [
        0.0,
@@ -2021,13 +1183,13 @@
    "title": "Main street",
    "style": "Unreal Engine",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue07-downtown-street.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue07-downtown-street.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue07-downtown-street.mp4?v=1790897229",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue07-downtown-street.jpg?v=1790897222",
    "trajectories": [
     {
      "v": "A",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue07-downtown-street.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue07-downtown-street.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue07-downtown-street.mp4?v=1790897244",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue07-downtown-street.jpg?v=1790897221",
      "segments": [
       [
        0.0,
@@ -2035,7 +1197,7 @@
       ]
      ],
      "speed": 1.0,
-     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
     }
    ]
   },
@@ -2044,13 +1206,13 @@
    "title": "Tokyo block",
    "style": "Unreal Engine",
    "size": "wide",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/swl-dataid22-Tokyo-120s.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/swl-dataid22-Tokyo-120s.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/swl-dataid22-Tokyo-120s.mp4?v=1790897231",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/swl-dataid22-Tokyo-120s.jpg?v=1790897225",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/swl-dataid22-Tokyo-120s.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/swl-dataid22-Tokyo-120s.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/swl-dataid22-Tokyo-120s.mp4?v=1790897236",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/swl-dataid22-Tokyo-120s.jpg?v=1790897223",
      "segments": [
       [
        40.0,
@@ -2066,13 +1228,13 @@
    "title": "Station hall",
    "style": "AI photoreal",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c20-photoreal-ai.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c20-photoreal-ai.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c20-photoreal-ai.mp4?v=1790897228",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c20-photoreal-ai.jpg?v=1790897223",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c20-photoreal-ai.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c20-photoreal-ai.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c20-photoreal-ai.mp4?v=1790897241",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c20-photoreal-ai.jpg?v=1790897223",
      "segments": [
       [
        0.0,
@@ -2088,13 +1250,13 @@
    "title": "Clay town",
    "style": "Stylized",
    "size": "tall",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c18-clay-render.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c18-clay-render.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c18-clay-render.mp4?v=1790897229",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c18-clay-render.jpg?v=1790897225",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c18-clay-render.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c18-clay-render.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c18-clay-render.mp4?v=1790897239",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c18-clay-render.jpg?v=1790897225",
      "segments": [
       [
        0.0,
@@ -2110,13 +1272,13 @@
    "title": "Pyramid gate",
    "style": "Unreal Engine",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue15-pyramid-gate.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue15-pyramid-gate.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue15-pyramid-gate.mp4?v=1790897233",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ue15-pyramid-gate.jpg?v=1790897228",
    "trajectories": [
     {
      "v": "A",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue15-pyramid-gate.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue15-pyramid-gate.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue15-pyramid-gate.mp4?v=1790897245",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ue15-pyramid-gate.jpg?v=1790897227",
      "segments": [
       [
        0.0,
@@ -2124,7 +1286,7 @@
       ]
      ],
      "speed": 1.0,
-     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
     }
    ]
   },
@@ -2133,13 +1295,13 @@
    "title": "Window gallery",
    "style": "Sci-fi",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c22-scifi-render.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c22-scifi-render.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c22-scifi-render.mp4?v=1790897233",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c22-scifi-render.jpg?v=1790897230",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c22-scifi-render.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c22-scifi-render.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c22-scifi-render.mp4?v=1790897243",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c22-scifi-render.jpg?v=1790897229",
      "segments": [
       [
        0.0,
@@ -2155,13 +1317,13 @@
    "title": "Forest clearing",
    "style": "Unreal Engine",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/swl-dataid8-Forest-120s.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/swl-dataid8-Forest-120s.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/swl-dataid8-Forest-120s.mp4?v=1790897239",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/swl-dataid8-Forest-120s.jpg?v=1790897232",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/swl-dataid8-Forest-120s.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/swl-dataid8-Forest-120s.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/swl-dataid8-Forest-120s.mp4?v=1790897244",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/swl-dataid8-Forest-120s.jpg?v=1790897232",
      "segments": [
       [
        40.0,
@@ -2177,13 +1339,13 @@
    "title": "Glass atrium",
    "style": "AI photoreal",
    "size": "wide",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c05-photoreal-ai.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c05-photoreal-ai.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c05-photoreal-ai.mp4?v=1790897238",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c05-photoreal-ai.jpg?v=1790897233",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c05-photoreal-ai.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c05-photoreal-ai.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c05-photoreal-ai.mp4?v=1790897246",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c05-photoreal-ai.jpg?v=1790897234",
      "segments": [
       [
        0.0,
@@ -2199,13 +1361,13 @@
    "title": "Low-poly village",
    "style": "Low-poly",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c04-low-poly.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c04-low-poly.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c04-low-poly.mp4?v=1790897240",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c04-low-poly.jpg?v=1790897235",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c04-low-poly.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c04-low-poly.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c04-low-poly.mp4?v=1790897246",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c04-low-poly.jpg?v=1790897235",
      "segments": [
       [
        0.0,
@@ -2221,13 +1383,13 @@
    "title": "Dune boardwalk",
    "style": "AI photoreal",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai05-photoreal-ai.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai05-photoreal-ai.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai05-photoreal-ai.mp4?v=1790890627",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/ai05-photoreal-ai.jpg?v=1790890626",
    "trajectories": [
     {
      "v": "A",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai05-photoreal-ai.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai05-photoreal-ai.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai05-photoreal-ai.mp4?v=1790897246",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/ai05-photoreal-ai.jpg?v=1790897236",
      "segments": [
       [
        0.0,
@@ -2235,7 +1397,7 @@
       ]
      ],
      "speed": 1.0,
-     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json"
+     "traj": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/traj/A.json?v=1790890596"
     }
    ]
   },
@@ -2244,13 +1406,13 @@
    "title": "Picture gallery",
    "style": "AI photoreal",
    "size": "xl",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c28-photoreal-ai.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c28-photoreal-ai.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c28-photoreal-ai.mp4?v=1790897241",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c28-photoreal-ai.jpg?v=1790897237",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c28-photoreal-ai.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c28-photoreal-ai.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c28-photoreal-ai.mp4?v=1790897246",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c28-photoreal-ai.jpg?v=1790897238",
      "segments": [
       [
        0.0,
@@ -2266,13 +1428,13 @@
    "title": "Desert town",
    "style": "Low-poly",
    "size": "",
-   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c26-low-poly.mp4",
-   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c26-low-poly.jpg",
+   "clip": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c26-low-poly.mp4?v=1790897243",
+   "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/wall/c26-low-poly.jpg?v=1790897240",
    "trajectories": [
     {
      "v": "",
-     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c26-low-poly.mp4",
-     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c26-low-poly.jpg",
+     "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c26-low-poly.mp4?v=1790897247",
+     "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/lb/c26-low-poly.jpg?v=1790897240",
      "segments": [
       [
        0.0,
@@ -2285,8 +1447,8 @@
   }
  ],
  "realtime": {
-  "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/realtime.mp4",
-  "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/realtime.jpg",
+  "src": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/realtime.mp4?v=1790890730",
+  "poster": "https://huggingface.co/datasets/sum0214/LOCI-web-media/resolve/main/media/realtime.jpg?v=1790890726",
   "fps": 16,
   "keys": [
    "",

@@ -423,3 +423,30 @@ pre{color:var(--ink)}
   .hero-ring,.hero-meta{display:none}
   .turn{height:auto}
 }
+/* 10-03 user: "Scroll to move the camera 太大了 得小一点" — smaller scroll section (desktop) */
+@media (min-width:821px){
+  .turn-sticky{max-width:1000px}
+  .turn-stage{max-height:56svh}
+  .turn-cap{font-size:clamp(22px,2.6vw,34px)}
+  .turn-deg b{font-size:clamp(28px,3.2vw,44px)}
+  .turn-hud .ring-wrap{width:88px;height:88px}
+}
+/* 10-03 user: "整体都偏大 左右空隙小了 看着难受" — narrower column, wider side margins, smaller section type (desktop).
+   Hero video and the paper title/credits screen are NOT changed (title size was the user's 10-02 request). */
+@media (min-width:821px){
+  :root{--max:1000px;--gut:clamp(24px,7vw,112px)}
+  .statement{max-width:1000px}
+  .turn-sticky{max-width:960px}
+  .display{font-size:clamp(28px,3.6vw,48px)}
+  .big{font-size:clamp(24px,3.1vw,40px)}
+  .lede{font-size:clamp(15px,1.25vw,17px)}
+  .sub{font-size:clamp(16px,1.35vw,19px)}
+  .abs-text{font-size:clamp(14.5px,1.1vw,16px)}
+  .hl dt{font-size:clamp(24px,2.3vw,32px)}
+  .stats dt{font-size:clamp(28px,3.2vw,44px)}
+  .res span,.d-card span{font-size:clamp(20px,2vw,28px)}
+}
+
+/* 10-04 user: icons on the link buttons */
+.hero-credits .credit-links .btn .ic{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-right:-2px}
+@media (max-width:600px){.hero-credits .credit-links .btn .ic{width:16px;height:16px}}

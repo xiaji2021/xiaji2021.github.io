@@ -450,3 +450,19 @@ pre{color:var(--ink)}
 /* 10-04 user: icons on the link buttons */
 .hero-credits .credit-links .btn .ic{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-right:-2px}
 @media (max-width:600px){.hero-credits .credit-links .btn .ic{width:16px;height:16px}}
+
+/* 10-06 user: tighter vertical rhythm (section padding -1/3, smaller gaps between heading/lede/figures) */
+.sec{padding-top:clamp(35px,5.3vh,64px)}
+.display{margin-bottom:10px}
+.lede{margin-bottom:18px}
+.sub{margin:22px 0 8px}
+.fig{margin-top:16px}
+.m-split,.r-split{margin-top:4px}
+.r-split.eff{margin-top:10px}
+.mem-timeline{margin-top:14px}
+@media (max-width:600px){
+  .sec{padding-top:clamp(32px,5vh,48px)}
+  .lede{margin-bottom:14px}
+  .sub{margin:18px 0 6px}
+  .fig{margin-top:12px}
+}
